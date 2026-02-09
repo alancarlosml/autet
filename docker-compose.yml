@@ -17,7 +17,7 @@ services:
       - app-network
       - npm_network
 
-  db:
+  mysql:
     image: mysql:8.0
     container_name: autt-db
     restart: unless-stopped
