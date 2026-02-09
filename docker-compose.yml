@@ -7,19 +7,17 @@ services:
       args:
         user: sail
         uid: 1000
-    image: autet-app
-    container_name: autet-app
+    container_name: autt-app
     restart: unless-stopped
-    working_dir: /var/www
-    volumes:
-      - .:/var/www
+    working_dir: /var/www/html
+    # Removi o volume do código para evitar o erro de pasta vazia
     networks:
       - app-network
-      - npm_network # Rede do Nginx Proxy Manager
+      - npm_network
 
   db:
     image: mysql:8.0
-    container_name: autet-db
+    container_name: autt-db
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: autet
@@ -27,7 +25,7 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_USER: sail
     volumes:
-      - dbdata:/var/lib/mysql
+      - autt-db-data:/var/lib/mysql
     networks:
       - app-network
 
@@ -35,8 +33,8 @@ networks:
   app-network:
     driver: bridge
   npm_network:
-    external: true # Assume que a rede do NPM já existe
+    external: true
 
 volumes:
-  dbdata:
+  autt-db-data:
     driver: local
