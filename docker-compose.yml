@@ -10,7 +10,9 @@ services:
     container_name: autt-app
     restart: unless-stopped
     working_dir: /var/www/html
-    # Removi o volume do código para evitar o erro de pasta vazia
+    # Mapeando os arquivos da VPS para dentro do container
+    volumes:
+      - .:/var/www/html
     networks:
       - app-network
       - npm_network
@@ -20,7 +22,7 @@ services:
     container_name: autt-db
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: autet
+      MYSQL_DATABASE: autt
       MYSQL_ROOT_PASSWORD: password
       MYSQL_PASSWORD: password
       MYSQL_USER: sail
