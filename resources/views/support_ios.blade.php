@@ -152,7 +152,7 @@
     <section>
         <h2>Como podemos ajudar?</h2>
         <div class="faq-item">
-            <h4>Problemas com登录 (Login)</h4>
+            <h4>Problemas com Login</h4>
             <p>Se você está com dificuldades para acessar o aplicativo, verifique se seu e-mail está cadastrado no sistema do condomínio. Em caso de problemas persistentes, entre em contato conosco.</p>
         </div>
         <div class="faq-item">
